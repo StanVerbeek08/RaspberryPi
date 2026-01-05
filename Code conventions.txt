@@ -1,0 +1,56 @@
+Code conventions
+C# conventions
+1. Commentaar dat op één regel past wordt geschreven op onderstaande manier.
+// Dit is een enkele regel commentaar
+2. Commentaar dat niet op één regel past wordt geschreven op onderstaande manier.
+/*
+Dit is een regel commentaar
+Maar dit is nog een regel commentaar
+*/
+3. Classnamen volgens PascalCasing.
+4. Publieke class properties worden opgezet d.m.v. PascalCasing.
+5. Private class properties (reguliere variabele/object) worden opgezet d.m.v. camelCasing.
+6. UI-elementen moeten ook in eerste 2 of 3 letters aangeven wat voor type UI-element het
+betreft.
+Bijvoorbeeld: FrmPersonView.cs voor een form
+7. Project- en solutionnamen mogen alleen uit letters en cijfers. Dus geen underscore, spaties.
+
+SQL conventions
+1. De code wordt netjes uitgelijnd zoals in onderstaand voorbeeld.
+CREATE TABLE country
+(
+code CHAR(3) NOT NULL,
+name VARCHAR(100) NOT NULL
+);
+INSERT INTO country
+VALUES ('AFG','Afghanistan'),
+('NLD','Netherlands');
+DELETE
+FROM student
+WHERE firstName = 'Roger';
+SELECT *
+FROM student
+WHERE class = 'IO1B4';
+2. Alle statements worden afgesloten met een ;-teken.
+3. Alle keywords worden in hoofdletters geschreven.
+4. Namen van tabellen en kolommen in enkelvoud. In leerjaar 2 moeten deze namen ook in
+het Engels.
+5. Namen van sleutels worden op onderstaande manier opgebouwd.
+Primary keys: PK_<tabelnaam>
+Alternate keys: AK_<tabelnaam><Veldnaam>
+Foreign keys: FK_<tablename1>_<tablename2>
+6. Onderstaande commentaarregels (mits van toepassing) worden gebruikt in een CREATE-
+script.
+-- Database
+-- Tables
+-- Primary keys
+-- Alternate keys
+-- Foreign keys
+-- Other constraints
+-- Views
+-- Indexes
+-- Stored procedures
+-- Insert data
+-- Layer 1
+-- Layer 2
+-- etc.
