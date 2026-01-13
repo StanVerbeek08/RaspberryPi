@@ -1,15 +1,3 @@
--- Tabellen
-USE master
-
-DROP DATABASE IF EXISTS VoedselbankDB
-GO
-CREATE DATABASE VoedselbankDB
-GO
-USE VoedselbankDB
-CREATE TABLE Klant (
-    KlantId			INT NOT NULL,
-    Voornaam		VARCHAR(100) NOT NULL
-);
 
 CREATE TABLE Pakket (
     PakketId       INT NOT NULL,
@@ -58,3 +46,4 @@ REFERENCES Pakket(PakketId)
 ALTER TABLE PakketProduct
 ADD CONSTRAINT FK_PakketProduct_Peoduct FOREIGN KEY (ProductId)
 REFERENCES Product(ProductId)
+
