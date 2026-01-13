@@ -1,0 +1,60 @@
+-- Tabellen
+USE master
+
+DROP DATABASE IF EXISTS VoedselbankDB
+GO
+CREATE DATABASE VoedselbankDB
+GO
+USE VoedselbankDB
+CREATE TABLE Klant (
+    KlantId			INT NOT NULL,
+    Voornaam		VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Pakket (
+    PakketId       INT NOT NULL,
+    PakketNummer    VARCHAR(50) NOT NULL,
+    KlantId        INT NOT NULL,
+    Uitgiftedatum   DATE,
+    [Status]          VARCHAR(20) NOT NULL,
+);
+
+CREATE TABLE Product (
+    ProductId			INT			NOT NULL,
+    Naam				VARCHAR(100) NOT NULL,
+    ProductCategorie	VARCHAR(100)
+);
+
+CREATE TABLE PakketProduct (
+    PakketId  INT NOT NULL,
+    ProductId INT NOT NULL,
+    Aantal     INT NOT NULL 
+);
+
+-- Primary Keys
+
+ALTER TABLE Klant
+ADD CONSTRAINT PK_Klant PRIMARY KEY (KlantId);
+
+ALTER TABLE Pakket
+ADD CONSTRAINT PK_Pakket PRIMARY KEY (PakketId);
+
+ALTER TABLE Product
+ADD CONSTRAINT PK_Product PRIMARY KEY (ProductId);
+
+ALTER TABLE PakketProduct
+ADD CONSTRAINT PK_PakketProduct PRIMARY KEY (PakketId, ProductId);
+
+-- Foreign Keys
+
+ALTER TABLE Pakket
+ADD CONSTRAINT FK_Pakket_Klant FOREIGN KEY (KlantId)
+REFERENCES Klant(KlantId);
+
+ALTER TABLE PakketProduct
+ADD CONSTRAINT FK_PakketProduct_Pakket FOREIGN KEY (PakketId)
+REFERENCES Pakket(PakketId)
+
+ALTER TABLE PakketProduct
+ADD CONSTRAINT FK_PakketProduct_Peoduct FOREIGN KEY (ProductId)
+REFERENCES Product(ProductId)
