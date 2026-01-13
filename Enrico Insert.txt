@@ -1,19 +1,18 @@
-INSERT INTO Klant (KlantId, Voornaam) VALUES
-(1, 'Jan'),
-(2, 'Fatima');
 
-INSERT INTO Product (ProductId, Naam, ProductCategorie) VALUES
-(1, 'Rijst', 'Granen'),
-(2, 'Pasta', 'Granen'),
-(3, 'Tomatensaus', 'Conserven'),
-(4, 'Bonen', 'Conserven');
 
-INSERT INTO Pakket (PakketId, PakketNummer, KlantId, Uitgiftedatum, [Status]) VALUES
-(1, 'PKT-001', 1, '2026-01-10', 'UITGEGEVEN'),
-(2, 'PKT-002', 2, '2026-01-10', 'KLAAR');
+INSERT INTO Product (Naam, ProductCategorie) VALUES
+('Rijst', 'Granen'),
+('Pasta', 'Granen'),
+('Tomatensaus', 'Conserven'),
+('Bonen', 'Conserven');
+
+INSERT INTO Pakket (PakketNummer, KlantId, Uitgiftedatum, [Status]) VALUES
+('PKT-001', 1, '2026-01-10', 'UITGEGEVEN'),
+('PKT-002', 2, '2026-01-10', 'KLAAR');
 
 INSERT INTO PakketProduct (PakketId, ProductId, Aantal) VALUES
 (1, 1, 2),
 (1, 3, 1),
 (2, 2, 1),
 (2, 4, 2);
+
